@@ -69,6 +69,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        // 映射本地图片目录，让上传的图片可以通过 http://localhost:8080/images/xxx.jpg 访问
+        registry.addResourceHandler("/images/**").addResourceLocations("file:E:/BaiduNetdiskDownload/images/");
     }
 
 
