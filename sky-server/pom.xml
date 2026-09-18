@@ -34,6 +34,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- JUnit5 引擎启动器：供 IDE 运行测试使用，版本由 Spring Boot 父 POM 管理（2.7.3 -> 1.8.2） -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
