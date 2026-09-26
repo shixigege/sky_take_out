@@ -54,5 +54,17 @@ public class OrderController {
         log.info("生成预支付交易单：{}", orderPaymentVO);
         return Result.success(orderPaymentVO);
     }
+    /**
+     * 历史订单查询
+     *
+     * @param
+     */
+    @GetMapping("/historyOrders")
+    @ApiOperation("历史订单查询")
+    public Result<PageResult> list(Integer page, Integer pageSize, Integer status) {
+        log.info("历史订单查询");
+        PageResult pageResult = orderService.pageQuery4User(page, pageSize, status);
+        return Result.success(pageResult);
+    }
 
 }
