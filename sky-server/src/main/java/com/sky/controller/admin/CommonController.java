@@ -18,6 +18,10 @@ import java.util.UUID;
 
 /**
  * 通用控制器
+ *
+ * 【本地改造】完整版用阿里云 OSS 存储图片，需要真实 OSS 账号。
+ * 这里改为保存到本机磁盘，并通过 WebMvcConfiguration 的 /images/** 静态映射对外提供访问，
+ * 不依赖任何云服务即可完成图片上传功能。
  */
 @RestController
 @RequestMapping("/admin/common")

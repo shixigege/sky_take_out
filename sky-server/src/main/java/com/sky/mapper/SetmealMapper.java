@@ -7,18 +7,19 @@ import com.sky.entity.Setmeal;
 import com.sky.enumeration.OperationType;
 import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface SetmealMapper {
 
     /**
      * 根据分类id查询套餐的数量
+     *
      * @param id
      * @return
      */
@@ -26,10 +27,19 @@ public interface SetmealMapper {
     Integer countByCategoryId(Long id);
 
     /**
-     * 新增套餐
+     * 根据id修改套餐
+     *
      * @param setmeal
      */
-    @AutoFill(value = OperationType.INSERT)
+    @AutoFill(OperationType.UPDATE)
+    void update(Setmeal setmeal);
+
+    /**
+     * 新增套餐
+     *
+     * @param setmeal
+     */
+    @AutoFill(OperationType.INSERT)
     void insert(Setmeal setmeal);
 
     /**
@@ -55,11 +65,11 @@ public interface SetmealMapper {
     void deleteById(Long setmealId);
 
     /**
-     * 修改套餐
-     * @param setmeal
+     * 根据id查询套餐和套餐菜品关系
+     * @param id
+     * @return
      */
-    @AutoFill(value = OperationType.UPDATE)
-    void update(Setmeal setmeal);
+    SetmealVO getByIdWithDish(Long id);
 
     /**
      * 动态条件查询套餐
@@ -77,4 +87,11 @@ public interface SetmealMapper {
             "from setmeal_dish sd left join dish d on sd.dish_id = d.id " +
             "where sd.setmeal_id = #{setmealId}")
     List<DishItemVO> getDishItemBySetmealId(Long setmealId);
+
+    /**
+     * 根据条件统计套餐数量
+     * @param map
+     * @return
+     */
+    Integer countByMap(Map map);
 }

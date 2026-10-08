@@ -7,11 +7,28 @@ sky:
     username: root
     password: 123456
 
+  alioss:
+    # 【本地无 OSS 账号】这里只是占位，保证 AliOssProperties 能正常绑定，不影响启动
+    endpoint: oss-cn-beijing.aliyuncs.com
+    access-key-id: your-access-key-id
+    access-key-secret: your-access-key-secret
+    bucket-name: your-bucket-name
+
   redis:
     host: localhost
     port: 6379
     password: 123456
     database: 10
+
   wechat:
+    # 小程序的 appid/secret，与项目里 mp-weixin 的 project.config.json 保持一致
     appid: wx485b9741047a507f
     secret: 3841ef531c8c836a08767b0e66220304
+    # 【本地无微信商户资质】以下为占位，配合"学习用改造"（跳过真实微信支付/退款）使用
+    mchid: 1561414331
+    mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
+    privateKeyFilePath: D:\pay\apiclient_key.pem
+    apiV3Key: CZBK51236435wxpay435434323FFDuv3
+    weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+    notifyUrl: https://example.com/notify/paySuccess
+    refundNotifyUrl: https://example.com/notify/refundSuccess
